@@ -1,0 +1,82 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-8">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Edit Profile</h4>
+                      <p class="card-category">Complete your profile</p>
+                  </div>
+                  <div class="card-body">
+                      <form class="example-form" [formGroup]="createUser">
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>First Name</mat-label>
+                            <input matInput value="Google" formControlName="firstname">
+                          </mat-form-field>
+                        
+                          <table class="example-full-width" cellspacing="0"><tr>
+                            <td><mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>Last Name</mat-label>
+                              <input matInput formControlName="lastname">
+                            </mat-form-field></td>
+                            <td><mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>address</mat-label>
+                              <input matInput formControlName="address">
+                            </mat-form-field></td>
+                          </tr></table>
+                          <table class="example-full-width" cellspacing="0"><tr>
+                            <td><mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>User name</mat-label>
+                              <input matInput formControlName="username">
+                            </mat-form-field></td>
+                            <td><mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>Date of birth</mat-label>
+                              <input matInput formControlName="dob" type="date">
+                            </mat-form-field></td>
+                          </tr></table>
+                          <table class="example-full-width" cellspacing="0"><tr>
+                            <td><mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>Email Address</mat-label>
+                              <input matInput formControlName="email" type="email">
+                            </mat-form-field></td>
+                            <td><mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>Phone</mat-label>
+                              <input matInput formControlName="phone" type="number">
+                            </mat-form-field></td>
+                          </tr></table>
+                          <table class="example-full-width" cellspacing="0"><tr>
+                            <td><mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>Set password</mat-label>
+                              <input matInput formControlName="password">
+                            </mat-form-field></td>
+                            <td><mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>Confirm Password</mat-label>
+                              <input matInput formControlName="confirm_password">
+                            </mat-form-field></td>
+                          </tr></table>
+                            <button mat-raised-button type="submit" (click)="signUp()" class="btn btn-danger pull-right">Create User</button>
+                        </form>
+                        
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card card-profile">
+                  <div class="card-avatar">
+                      <a href="javascript:void(0)">
+                          <img class="img" src="./assets/img/faces/marc.jpg" />
+                      </a>
+                  </div>
+                  <div class="card-body">
+                      <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                      <h4 class="card-title">Alec Thompson</h4>
+                      <p class="card-description">
+                          Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                      </p>
+                      <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

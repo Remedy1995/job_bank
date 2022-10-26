@@ -1,0 +1,75 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">All Users</h4>
+                        <p class="card-category"> Here is a list of All Users</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Account Number
+                                       </th>
+                                    <th>
+                                     First Name
+                                    </th>
+                                    <th>
+                                       last Name
+                                    </th>
+                                    <th>
+                                       User Name
+                                    </th>
+                                    <th>
+                                        Dob
+                                    </th>
+                                    <th>
+                                       View
+                                    </th>
+                                    <th>
+                                        Block User
+                                     </th>
+                                </thead>
+                                <tbody *ngFor="let newuser of newusers">
+                                    <tr>
+                                        <td>
+                                           {{newuser.accountnumber}}
+                                        </td>
+                                        <td>
+                                           {{newuser.firstname}}
+                                        </td>
+                                        <td>
+                                            {{newuser.lastname}}
+                                        </td>
+                                        <td>
+                                            {{newuser.username}}
+                                        </td>
+                                        <td>
+                                            {{newuser.dob}}
+                                        </td>
+                                        <td class="text-primary">
+                                           View
+                                        </td>
+                                    
+                                        <td class="text-primary" *ngIf="newuser.grant_access===false">
+                                          <button type="button" class="btn button-danger"  [disabled]="true">Blocked</button>
+                                        </td>
+                                        <td class="text-primary" *ngIf="newuser.grant_access===true">
+                                            <button type="button" class="btn button-danger" (click)="checkedUser(newuser._id)">Block</button>
+                                          </td>
+                                          
+                                          
+                                    </tr>  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+    </div>
+  </div>
+  
