@@ -7,9 +7,13 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ComponentsModule } from './components/components.module';
-import { ClientDashboardComponent } from './client-dashboard/client-dashboard/client-dashboard.component';
+
 import { AuthGuardService } from './service/auth-guard.service';
 import { ApiServiceService } from './api-service.service';
+import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
+
+
+
 
 
 
@@ -22,14 +26,15 @@ import { ApiServiceService } from './api-service.service';
     HttpClientModule,
     RouterModule,
     AppRoutingModule,
-    ComponentsModule,
-   
-  
+    ComponentsModule, 
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    ClientDashboardComponent
+    UserLayoutComponent,
+   
+  
+ 
    
   
   

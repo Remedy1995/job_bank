@@ -11,7 +11,6 @@ import { AddMoneyComponent } from 'app/add-money/add-money.component';
 import { CreateUserComponent } from 'app/create-user/create-user/create-user.component';
 import { AllUsersComponent } from 'app/all-users/all-users/all-users.component';
 import { BlockUsersComponent } from 'app/blockusers/block-users/block-users.component';
-import { ClientDashboardComponent } from 'app/client-dashboard/client-dashboard/client-dashboard.component';
 import { ClientDepositComponent } from 'app/client-deposit/client-deposit/client-deposit.component';
 import { AuthGuardService } from 'app/service/auth-guard.service';
 export const AdminLayoutRoutes: Routes = [
@@ -27,5 +26,6 @@ export const AdminLayoutRoutes: Routes = [
     {path:  'createuser',     component:CreateUserComponent},
     {path:  'allusers',       component:AllUsersComponent},
     {path:   'blocked',       component:BlockUsersComponent,canActivate:[AuthGuardService]},
-    {path:   'client-deposit',component:ClientDepositComponent}
+   
+ 
 ];

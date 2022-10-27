@@ -8,7 +8,7 @@ export class ApiServiceService {
 
   constructor(private _http:HttpClient) { }
 
-  depositfunds="http://localhost:4000/depositfunds/depositfunds";
+  depositfunds="http://localhost:4000/deposit/deposit";
   signupuser="http://localhost:4000/user/createuser";
   getusers="http://localhost:4000/getallusers/getallusers";
   getsingledataUrl="http://localhost:4000/getsingledata/getsingledata";

@@ -19,7 +19,7 @@ export const ROUTES: RouteInfo[] = [
 ];
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'app-user-sidebar',
   templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {

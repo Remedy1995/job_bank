@@ -4,13 +4,13 @@ const mongoose=require('mongoose');
 const cookieParser = require('cookie-parser')
 const cors=require('cors');
 const port=4000;
-// const depositfunds=require('./routes/depositfunds');
+const depositfunds=require('./routes/funds');
 app.use(cookieParser());
 const User=require('./routes/user');
 const getallUsers=require('./routes/getallusers');
 const blockuser=require('./routes/blockuser');
 app.use(cors());
-// app.use('/depositfunds',depositfunds);
+ app.use('/deposit',depositfunds);
 app.use('/user',User);
 app.use('/getallusers',getallUsers);
 app.use('/getsingledata',blockuser);
