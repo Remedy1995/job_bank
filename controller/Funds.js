@@ -12,7 +12,7 @@ exports.depositfunds=(req,res,next)=>{
    const viewamount=compute.totaldeposit()
  
 
-   
+
 const deposit= new Funds({
   accountnumber:accountnumber,
   firstname:firstname,
@@ -26,12 +26,12 @@ const deposit= new Funds({
      transaction_withdrawals:"",
      transaction_date:"",
      },
-    //  account:
-    //      {
-    //      amount:amount,
-    //      previous_balance:amount,
-    //      new_balance:viewamount
-    //       }
+     account:
+         {
+         amount:amount,
+         previous_balance:amount,
+         new_balance:viewamount
+          }
     
 })
 try{

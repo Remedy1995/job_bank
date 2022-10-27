@@ -4,6 +4,7 @@ const mongoose=require('mongoose');
 const cookieParser = require('cookie-parser')
 const cors=require('cors');
 const port=4000;
+const path = require('path');
 const depositfunds=require('./routes/funds');
 app.use(cookieParser());
 const User=require('./routes/user');
@@ -23,6 +24,14 @@ mongoose.connect(mongodb,{useNewUrlParser:true,useUnifiedTopology:true}).then(()
   console.log("error connecting to the database",err)
 });
 
+
+// Serve only the static files form the dist directory
+app.use(express.static(__dirname + '/dist'));
+
+app.get('/*', function(req,res) {
+    
+res.sendFile(path.join(__dirname+'/dist/index.html'));
+})
 app.listen(4000,()=>{
     console.log("server is running on port "+port);
 })
