@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class ApiServiceService {
 
   constructor(private _http:HttpClient) { }
-
-  depositfunds="http://localhost:4000/deposit/deposit";
-  signupuser="http://localhost:4000/user/createuser";
-  getusers="http://localhost:4000/getallusers/getallusers";
-  getsingledataUrl="http://localhost:4000/getsingledata/getsingledata";
-  blockedusers="http://localhost:4000/user/blockeduser";
+  env=environment.apiUrl;
+  depositfunds=`${this.env}/deposit/deposit`;
+  signupuser=`${this.env}/user/createuser`;
+  getusers=`${this.env}/getallusers/getallusers`;
+  getsingledataUrl=`${this.env}/getsingledata/getsingledata`;
+  blockedusers=`${this.env}/user/blockeduser`;
   deposit(data:any):Observable<any>{
     return this._http.post(`${this.depositfunds}`,data);
   }
