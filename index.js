@@ -25,13 +25,11 @@ mongoose.connect(mongodb,{useNewUrlParser:true,useUnifiedTopology:true}).then(()
 });
 
 
-// Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist'));
-
+app.use(express.static(path.join(__dirname, 'public'))); 
+app.use(express.static(path.join(__dirname + '/public/dist')));
 app.get('/*', function(req,res) {
-    
-res.sendFile(path.join(__dirname+'/dist/index.html'));
-})
+res.sendFile(path.join(__dirname+
+'/public/dist/index.html'));});
 app.listen(process.env.PORT || 4000,()=>{
     console.log("server is running on port "+port);
 })
