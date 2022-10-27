@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl:'https://creativebank.herokuapp.com'
+  apiURL:'https://creativebank.herokuapp.com'
 };

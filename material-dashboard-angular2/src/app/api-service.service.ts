@@ -8,7 +8,7 @@ import { environment } from 'environments/environment';
 export class ApiServiceService {
 
   constructor(private _http:HttpClient) { }
-  env=environment.apiUrl;
+  env=environment.apiURL;
   depositfunds=`${this.env}/deposit/deposit`;
   signupuser=`${this.env}/user/createuser`;
   getusers=`${this.env}/getallusers/getallusers`;
