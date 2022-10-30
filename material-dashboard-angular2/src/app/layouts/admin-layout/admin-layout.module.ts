@@ -25,6 +25,7 @@ import { ClientDepositComponent } from 'app/client-deposit/client-deposit/client
 import { AuthGuardService } from 'app/service/auth-guard.service';
 import { ApiServiceService } from 'app/api-service.service';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -53,10 +54,8 @@ import { ApiServiceService } from 'app/api-service.service';
    CreateUserComponent,
    AllUsersComponent,
    BlockUsersComponent,
-
- 
-  
   ],
+
   providers:[ApiServiceService, AuthGuardService]
 })
 

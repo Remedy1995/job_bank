@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  apiURL:'http://127.0.0.1:4000'
+  app_name:"material-dashboard-angular2",
+  apiURL:'http://localhost:4000'
 };

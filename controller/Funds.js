@@ -20,7 +20,7 @@ const deposit= new Funds({
   amount:amount,
  transaction:{
      transaction_type:"deposits",
-     transaction_description:req.body.transaction.transaction_description,
+     transaction_description:"",
      transaction_reference:"1334343433443",    
      transaction_deposits:amount,
      transaction_withdrawals:"",

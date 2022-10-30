@@ -3,6 +3,7 @@ const app=express();
 const mongoose=require('mongoose');
 const cookieParser = require('cookie-parser')
 const cors=require('cors');
+const userToken=require('./middleware/auth');
 require('dotenv').config()
 const port=4000;
 const path = require('path');
@@ -11,13 +12,11 @@ app.use(cookieParser());
 const User=require('./routes/user');
 const getallUsers=require('./routes/getallusers');
 const blockuser=require('./routes/blockuser');
-app.use(cors());
  app.use('/deposit',depositfunds);
 app.use('/user',User);
 app.use('/getallusers',getallUsers);
 app.use('/getsingledata',blockuser);
-
-const mongodb=process.env.MONGO_ONLINE;
+const mongodb=process.env.MONGO_URL;
 mongoose.connect(mongodb,{useNewUrlParser:true,useUnifiedTopology:true}).then(()=>
 {
   console.log("successfully connected to the database");

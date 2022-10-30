@@ -2,8 +2,10 @@ const User=require('../models/User');
 const jwt=require('jsonwebtoken');
 const bcrypt=require('bcryptjs');
 const dotenv=require('dotenv');
+
 dotenv.config();
 exports.createUser=async (req,res,next)=>{
+
    const email=req.body.email;
    const password=req.body.password;
    const olduser=await User.findOne({email});
@@ -74,7 +76,7 @@ res.status(200).json({message:"you have successfully blocked this user",docs})
 
 //
 exports.AllblockUsers=(req,res,next)=>{
-
+ console.log('users',req.body['token']);
    //blocked users have a false grant access;
    User.find({grant_access:'false'}).then(docs=>{
     res.json({"data":docs})
@@ -106,6 +108,13 @@ exports.unblockUsers=(req,res,next)=>{
 }
 
 exports.login=async(req,res,next)=>{
+
+    // res
+    //   .writeHead(200, {
+    //     "Set-Cookie": "token=encryptedstring; HttpOnly",
+    //     "Access-Control-Allow-Credentials": "true"
+    //   })
+    //   .send();
 // Our login logic starts here
 try {
    // Get user input
@@ -116,22 +125,25 @@ try {
      const token = jwt.sign(
        { user_id: user._id, email },
        process.env.TOKEN_KEY,{
-         expiresIn: "1m",
+         expiresIn: "1m"
        });
      // save user token
      user.token = token;
      // user
     //  res.json(user);
-    
-    res.cookie('token', token, {
+ 
+     res.cookie('token', token,{
       expires  : new Date(Date.now() + 9999999),
-      httpOnly : false
-    });
+       secure: true,
+       httpOnly: true,
+       sameSite: 'lax'
+   });
     res.status(200).send({ user, token: token });
-    console.log('your cookie ',req.cookies.token)
-   
+  console.log(req.cookies.accessToken)
+  
    }
    else{
+    console.log('wrong details')
    res.status(400).send("Invalid Credentials");
    }
  } catch (err) {
@@ -140,7 +152,9 @@ try {
  // Our register logic ends here;
 }
 
-
+exports.getToken=(req,res,next)=>{
+  res.json({message:"User  authenticated"})
+}
 
 
 

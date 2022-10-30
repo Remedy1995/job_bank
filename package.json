@@ -1,11 +1,10 @@
 {
-  "name": "hris",
+  "name": "server",
   "version": "1.0.0",
   "engines": {
     "node": "16.17.0",
-   "npm": "8.15.0"
-},
-  "description": "",
+    "npm": "8.15.0"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,5 +23,14 @@
     "jsonwebtoken": "^8.5.1",
     "md5": "^2.3.0",
     "mongoose": "^6.3.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Remedy1995/job_bank.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Remedy1995/job_bank/issues"
+  },
+  "homepage": "https://github.com/Remedy1995/job_bank#readme",
+  "description": ""
 }

@@ -18,6 +18,31 @@
 <!doctype html>
 <html>
 <head>
+  <title>Validate Login & Register Forms Flat Responsive Widget Template :: w3layouts</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content="Validate Login & Register Forms Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- Meta tag Keywords -->
+
+	<!-- css files -->
+	<link rel="stylesheet" href="assets/css-s/style.css" type="text/css" media="all" />
+	<!-- Style-CSS -->
+	<link href="assets/css-s/font-awesome.min.css" rel="stylesheet">
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //css files -->
+	<!-- web-fonts -->
+	<link href="//fonts.googleapis.com/css?family=Magra:400,700&amp;subset=latin-ext" rel="stylesheet">
+	<!-- //web-fonts -->
     <base href='/'>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
@@ -32,10 +57,36 @@
     <!--     Fonts and icons     -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR-KEY-HERE"></script>
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR-KEY-HERE"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>  
     <script>window.global = window;</script>
-
+    <script src="assets/js/jquery-2.2.3.min.js"></script>
+    <!-- //Jquery -->
+    <!-- input fields js -->
+    <script src="assets/js/input-field.js"></script>
+    <!-- //input fields js -->
+  
+    <!-- password-script -->
+    <script>
+      window.onload = function () {
+        document.getElementById("password1").onchange = validatePassword;
+        document.getElementById("password2").onchange = validatePassword;
+      }
+  
+      function validatePassword() {
+        var pass2 = document.getElementById("password2").value;
+        var pass1 = document.getElementById("password1").value;
+        if (pass1 != pass2)
+          document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+        else
+          document.getElementById("password2").setCustomValidity('');
+        //empty string means no validation error
+      }
+    </script>
+    <!-- //password-script -->
+    <!-- //js files -->
+  
+  
 </head>
 <body>
   <app-root>
@@ -45,6 +96,10 @@
       </svg>
     </div>
   </app-root>
+
+
+
+  
 </body>
 
 
