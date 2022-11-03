@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient,HttpHeaders,HttpParams, } from '@angular/common/http';
+import { map, Observable } from 'rxjs';
 import { environment } from 'environments/environment';
-import {CookieService} from 'ngx-cookie-service';
+import { JwtHelperService} from "@auth0/angular-jwt";
+
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiServiceService {
-     
-  constructor(private _http:HttpClient,private cookie:CookieService) { }
+  loggedUser:any;
+  constructor(private _http:HttpClient) { }
   //get our token
-  user=this.cookie.get('user');
+  user=localStorage.getItem('token')
    gettermsheader = {
     'Authorization': `Bearer ${this.user}`,
      'Accept':'application/json',
@@ -25,7 +28,7 @@ export class ApiServiceService {
   blockedusers=`${this.env}/user/blockeduser`;
   getUsertoken=`${this.env}/user/token`;
   signin=`${this.env}/user/login`;
- 
+  helper=new JwtHelperService();
   
   deposit(data:any):Observable<any>{
     return this._http.post(`${this.depositfunds}`,data);
@@ -51,7 +54,11 @@ export class ApiServiceService {
     return this._http.post(`${this.signin}`,data, {withCredentials:true})
   }
 
- checkAuth():Observable<any>{
-  return this._http.get(`${this.getUsertoken}`,this.requesttermsoptions);
+ checkAuth(){
+   return this._http.get(this.getUsertoken,this.requesttermsoptions);
  }
+
+ verifytoken(){
+ return this.helper.isTokenExpired(this.user);
+}
 }

@@ -153,7 +153,7 @@ try {
 }
 
 exports.getToken=(req,res,next)=>{
-  res.json({message:"User  authenticated"})
+  res.json(true)
 }
 
 

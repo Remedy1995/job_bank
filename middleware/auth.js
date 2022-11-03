@@ -12,7 +12,7 @@ const verifyToken = (req, res, next) => {
       const decoded = jwt.verify(req.token, config.TOKEN_KEY);
       req.user = decoded;
     } catch (err) {
-      return res.send({message:"Invalid Token"});
+      return res.send(false);
     }
   } else {
     // Forbidden

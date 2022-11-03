@@ -12,10 +12,11 @@ import { CreateUserComponent } from 'app/create-user/create-user/create-user.com
 import { AllUsersComponent } from 'app/all-users/all-users/all-users.component';
 import { BlockUsersComponent } from 'app/blockusers/block-users/block-users.component';
 import { ClientDepositComponent } from 'app/client-deposit/client-deposit/client-deposit.component';
-import { AuthGuardService } from 'app/service/auth-guard.service';
+import { AuthguardService } from 'app/authguard.service';
+
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: DashboardComponent ,canActivate:[AuthGuardService]},
+    { path: 'dashboard',      component: DashboardComponent,canActivate:[AuthguardService]},
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },
@@ -26,7 +27,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'deposit',        component: AddMoneyComponent },
     {path:  'createuser',     component:CreateUserComponent},
     {path:  'allusers',       component:AllUsersComponent},
-    {path:   'blocked',       component:BlockUsersComponent,canActivate:[AuthGuardService]},
+    {path:   'blocked',       component:BlockUsersComponent},
    
    
  

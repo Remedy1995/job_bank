@@ -16,7 +16,7 @@ const blockuser=require('./routes/blockuser');
 app.use('/user',User);
 app.use('/getallusers',getallUsers);
 app.use('/getsingledata',blockuser);
-const mongodb=process.env.MONGO_URL;
+const mongodb=process.env.MONGO_ONLINE;
 mongoose.connect(mongodb,{useNewUrlParser:true,useUnifiedTopology:true}).then(()=>
 {
   console.log("successfully connected to the database");

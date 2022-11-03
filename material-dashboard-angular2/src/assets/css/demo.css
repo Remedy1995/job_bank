@@ -1,4 +1,10 @@
-
+.mat-form-field-infix {
+  display: contents;
+  position: relative;
+  flex: auto;
+  min-width: 0;
+  width: 180px;
+}
 .tim-typo{
   padding-left: 25%;
   margin-bottom: 40px;

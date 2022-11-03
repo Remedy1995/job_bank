@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiServiceService } from 'app/api-service.service';
-import {CookieService} from 'ngx-cookie-service';
+
 @Component({
   selector: 'app-auth-layout',
   templateUrl: './auth-layout.component.html',
@@ -10,12 +10,10 @@ import {CookieService} from 'ngx-cookie-service';
 })
 export class AuthLayoutComponent implements OnInit {
 
-  constructor(private service:ApiServiceService,private router:Router,private cookie:CookieService) { }
-
+  constructor(private service:ApiServiceService,private router:Router) { }
+  setToken:any;
   ngOnInit(): void {
-   this.service.checkAuth().subscribe(data=>{
-    console.log(data);
-   })
+  
   }
     loginData=new FormGroup({
     email:new FormControl('adjetadj@gmail.com',Validators.required),
@@ -29,22 +27,11 @@ export class AuthLayoutComponent implements OnInit {
    
     this.service.authSign(this.loginData.value).subscribe({
       next:(data)=>{
+      this.setToken=localStorage.setItem('token',data.token);
+       !this.service.verifytoken()==this.service.verifytoken();
         console.log(data.token)
           // this.showspinner=false;
           this.router.navigate(['dashboard']);
-          //set user token
-          this.cookie.set('user',data.token)
-        //set results in cookie to display map
-        // this.cookie.set('latitude',data.message.country_latitude);
-        // this.cookie.set('longitude',data.message.country_longitude)
-        // this.cookie.set('destination',data.message.destination);
-        // this.cookie.set('description',data.message.itemsDescription);
-        // this.cookie.set('country',data.message.country);
-        // this.cookie.set('tracking',data.message.trackingstatus);
-        // this.cookie.set('date',data.message.orderDate);
-        // this.cookie.set('expected-date',data.message.deliveryDate);
-        // this.cookie.set('remarks',data.message.remarks);
-        // this.cookie.set('quantity',data.message.quantity);
        },
         error:(error)=>
         {
@@ -77,3 +64,7 @@ export class AuthLayoutComponent implements OnInit {
     }
    
 }
+function setToken() {
+  throw new Error('Function not implemented.');
+}
+

@@ -7,3 +7,7 @@
   td {
     padding-right: 8px;
   }
+  .mat-button.btn.btn-danger, .mat-raised-button.btn.btn-danger, .mat-raised-button.btn:not([class*=mat-elevation-z]).btn-danger, .btn.btn-danger
+  {
+   margin-left: 15px;
+  }

@@ -17,6 +17,8 @@ class calculate{
   withdrawal(){
   return this.previous_amount - this.new_amount;
   }
+
+  
 }
 
 module.exports=calculate;

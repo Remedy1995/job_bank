@@ -7,10 +7,10 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ComponentsModule } from './components/components.module';
-import { AuthGuardService } from './service/auth-guard.service';
 import { ApiServiceService } from './api-service.service';
 import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { AuthguardService } from './authguard.service';
 
 
 
@@ -42,7 +42,7 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 
 
   ],
-  providers: [ApiServiceService, AuthGuardService],
+ providers:[ApiServiceService,AuthguardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

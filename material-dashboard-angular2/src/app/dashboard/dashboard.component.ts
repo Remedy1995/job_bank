@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApiServiceService } from 'app/api-service.service';
 import * as Chartist from 'chartist';
 
 @Component({
@@ -8,7 +10,14 @@ import * as Chartist from 'chartist';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:ApiServiceService,private router:Router) {
+    if(this.service.verifytoken()){
+      this.router.navigate(['login'])
+    }
+    else if(!this.service.verifytoken()){
+      this.router.navigate(['dashboard'])
+    }
+   }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -66,6 +75,10 @@ export class DashboardComponent implements OnInit {
       seq2 = 0;
   };
   ngOnInit() {
+   
+console.log('answer is',this.service.verifytoken())
+
+
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
       const dataDailySalesChart: any = {

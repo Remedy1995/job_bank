@@ -7,6 +7,6 @@ router.use(cors());
 router.use(express.urlencoded({ extended: true }));
 router.use(bodyparser.urlencoded({extended:false}));
 router.use(bodyparser.json());
-router.post('/deposit',deposit.depositfunds);
+router.post('/deposit',deposit.makeDeposit);
 
 module.exports=router;
